@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-article-title" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/article-title/" class="article-date">
+  <time datetime="2020-09-23T07:19:50.000Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/23/article-title/">article title</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/23/article-title/" data-id="ckff25i9d00013k7kf7b78p6i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mulu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/mulu/" class="article-date">
+  <time datetime="2020-09-23T07:03:10.839Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a href="merge.html">归并排序</a>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/23/mulu/" data-id="ckff25i9e00023k7kbj0i4e0p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-merge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/merge/" class="article-date">
+  <time datetime="2020-09-23T07:03:10.835Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2>归并排序</h2>
+最近在学分治,碰到了一道逆序对的题目，可以用线段树，归并排序，树状数组做，这里讲的是归并排序算法。
+
+归并排序算法是用分治策略实现对n个元素进行排序的算法，其基本思想是：将待排序的元素分成大小大致相同的集合，分别对两个子集合进行排序，
+最终将排好序的子集合合并成要求的排好序的子集合。
+
+因为每个子集合是有序的，所以我们先考虑分成两个区间的情况(假定这两个子区间是已经排好序的)。
+设左右端点分别为l,r，这里mid=(l+r)>>+1使得左区间的个数始终>=右区间的个数。
+
+我们定义两个变量i=l,j=mid+1分别模拟左区间和右区间的指针。
+再定义一个temp数组用来存储两个子区间排序后的值，k=l为temp数组的初始角标。
+
+然后我们开始向temp数组中存值
+这里需要while循环直到有一个区间的指针超过该区间尾指针时，结束该循环。
+当a[i]>a[j]时,tenp[k]=a[j],k++,j++;
+否则，temp[k]=a[i],k++,i++;
+结束循环时，一定有一个区间中的元素全部放进了temp数组中，
+所以我们需要把剩下那个区间的元素按顺序直接放进temp数组就可以了。
+
+此时temp数组已经是排好序的了，然后我们需要再把temp数组中的元素重新赋值给原数组。
+
+那么讨论完只有两个区间的情况,我们需要将每次得到的区间全部一分为二，直到待排序集合只剩下一个集合为止。
+所以我们需要递归搜索每个子集合，在搜完当前区间的左右区间后，还需对他们进行排序。
+
+<p>附归并排序代码：</p>
+#include<stdio.h>
+#include<string.h>
+#include<algorithm>
+using namespace std;
+const int maxn=5e5;
+int a[maxn+5],temp[maxn+5];
+void merge(int a[],int l,int mid,int r) {
+    int i=l,j=mid+1,k=l;
+    while(i<=mid&&j<=r) {
+        if(a[i]>a[j]) {
+            temp[k]=a[j];
+            k++;
+            j++;
+        } else {
+            temp[k]=a[i];
+            k++;
+            i++;
+        }
+    }
+    while(i<=mid) {
+        temp[k]=a[i];
+        k++;
+        i++;
+    }
+    while(j<=r) {
+        temp[k]=a[j];
+        k++;
+        j++;
+    }
+    for(int i=l; i<=r; i++)
+        a[i]=temp[i];
+}
+void merge_sort(int a[],int l,int r) {
+    if(l==r)
+        return;
+    int mid=(l+r)>>1;
+    merge_sort(a,l,mid);
+    merge_sort(a,mid+1,r);
+    merge(a,l,mid,r);
+}
+int main() {
+    int n;
+    while(scanf("%d",&n)&&n) {
+        cnt=0;
+        for(int i=0; i<n; i++)
+            scanf("%d",&a[i]);
+        merge_sort(a,0,n-1);
+        for(int i=0;i<n;i++)
+            printf("%d\n",a[i]);
+    }
+}
+<h2>逆序对(poj2299)</h2>
+首先来看一下逆序对的定义：设 A 为一个有 n 个数字的有序集 (n>1)，其中所有数字各不相同。
+如果存在正整数 i, j 使得 1 ≤ i < j ≤ n 而且 A[i] > A[j]，则 <A[i], A[j]> 这个有序对称为 A 的一个逆序对，也称作逆序数。
+例如：(3,4,5)和(1,2,3)的逆序数分别为2,3,3
+因为每个子区间都是按照升序排序的，那么只有当左区间的某个元素大于右区间的某个元素时，逆序对才会出现。
+如果左区间的某个元素大于右区间的某个元素，那么在左区间中从该元素向右一定都大于右区间的该元素。
+也就是a[i]>a[j]时，我们要记下当前a[j]的逆序数,此时左区间[l,mid],右区间[mid+1,r];个数为mid-i+1;
+
+<p>附逆序对代码：</p>>
+#include<stdio.h>
+    #include<string.h>
+    #include<algorithm>
+    using namespace std;
+    const int maxn=5e5;
+    int a[maxn+5],temp[maxn+5];
+    long long cnt;
+    void merge(int a[],int l,int mid,int r) {
+        int i=l,j=mid+1,k=l;
+        while(i<=mid&&j<=r) {
+            if(a[i]>a[j]) {
+                temp[k]=a[j];
+                k++;
+                j++;
+                cnt+=mid-i+1;
+            } else {
+                temp[k]=a[i];
+                k++;
+                i++;
+            }
+        }
+        while(i<=mid) {
+            temp[k]=a[i];
+            k++;
+            i++;
+        }
+        while(j<=r) {
+            temp[k]=a[j];
+            k++;
+            j++;
+        }
+        for(int i=l; i<=r; i++)
+            a[i]=temp[i];
+    }
+    void merge_sort(int a[],int l,int r) {
+        if(l==r)
+            return;
+        int mid=(l+r)>>1;
+        merge_sort(a,l,mid
+                );
+        merge_sort(a,mid+1,r);
+        merge(a,l,mid,r);
+    }
+    int main() {
+        int n;
+        while(scanf("%d",&n)&&n) {
+            cnt=0;
+            for(int i=0; i<n; i++)
+                scanf("%d",&a[i]);
+            merge_sort(a,0,n-1);
+            printf("%lld\n",cnt);
+        }
+    }
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/23/merge/" data-id="ckff25i9i00033k7k5tqreep2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/index/" class="article-date">
+  <time datetime="2020-09-23T07:03:10.829Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>HappyCpp's blog</h1>
+<br></br>
+<a href="mulu.html">目录</a>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/23/index/" data-id="ckff25i9700003k7k6oq8e9k4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/23/hello-world/" class="article-date">
+  <time datetime="2020-09-23T07:00:23.827Z" itemprop="datePublished">2020-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/23/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/23/hello-world/" data-id="ckff1h5vh0000ok7k0qkxgywb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/23/article-title/">article title</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/23/mulu/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/23/merge/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/23/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/23/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
