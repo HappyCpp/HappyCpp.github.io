@@ -29,15 +29,15 @@
 <meta property="og:site_name" content="HappyCpp">
 <meta property="og:description" content="棋盘覆盖问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/145616-3ab5c3b8676a4ec1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/227/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/145616-d6cfd90a73b75769.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/280/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/145616-2b5d17b41ae04bc0.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/156/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/145616-9354c61362c99c05.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/213/format/webp">
+<meta property="og:image" content="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/1_thumb.gif">
+<meta property="og:image" content="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/2_thumb.gif">
+<meta property="og:image" content="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/3_thumb.gif">
+<meta property="og:image" content="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/4_thumb.gif">
 <meta property="article:published_time" content="2020-10-06T12:41:45.000Z">
-<meta property="article:modified_time" content="2020-10-06T13:53:15.629Z">
+<meta property="article:modified_time" content="2020-10-06T14:00:48.665Z">
 <meta property="article:author" content="Yin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/145616-3ab5c3b8676a4ec1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/227/format/webp">
+<meta name="twitter:image" content="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/1_thumb.gif">
 
 
 <link rel="canonical" href="http://example.com/2020/10/06/%E6%A3%8B%E7%9B%98%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/">
@@ -271,7 +271,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-10-06 20:41:45 / 修改时间：21:53:15" itemprop="dateCreated datePublished" datetime="2020-10-06T20:41:45+08:00">2020-10-06</time>
+      <time title="创建时间：2020-10-06 20:41:45 / 修改时间：22:00:48" itemprop="dateCreated datePublished" datetime="2020-10-06T20:41:45+08:00">2020-10-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -296,10 +296,10 @@
         <p>棋盘覆盖问题</p>
 <a id="more"></a>
 <h2 id="棋盘覆盖问题"><a href="#棋盘覆盖问题" class="headerlink" title="棋盘覆盖问题"></a>棋盘覆盖问题</h2><p>这是算法课上老师讲的一道分治题目,题目描述如下：<br>在一个2^k*2^k个方格组成的棋盘中,若恰有一个方格与其他方格不同,则称该方格为一个特殊方格。</p>
-<p>下图的棋盘是k=3时8*8的棋盘方格<br><img src="https://upload-images.jianshu.io/upload_images/145616-3ab5c3b8676a4ec1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/227/format/webp"></p>
-<p>用四种不同的L型骨牌去覆盖除特殊方格外的所有方格,且任何2个L型骨牌不得重叠覆盖。<br>这里,我们容易得到用到的L型骨牌数量为（4^k-1)/3;<br><img src="https://upload-images.jianshu.io/upload_images/145616-d6cfd90a73b75769.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/280/format/webp"></p>
-<p>我们采用分治策略,将2^k*2^k的方格分成4个2^(k-1)*2^(k-1),如下图：<br><img src="https://upload-images.jianshu.io/upload_images/145616-2b5d17b41ae04bc0.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/156/format/webp"></p>
-<p>特殊方格必位于4个较小棋盘中,其余3个子棋盘中无特殊方格。<br>为了将这3个子棋盘转化为特殊棋盘,可以用一个L型骨牌覆盖这3个较小棋盘<br>的汇合处,这3个子棋盘被L型骨牌覆盖的方格就成为该棋盘上的特殊方格。递归地使用这种分割,直至棋盘简化成1*1。如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/145616-9354c61362c99c05.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/213/format/webp"></p>
+<p>下图的棋盘是k=3时8*8的棋盘方格<br><img src="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/1_thumb.gif"></p>
+<p>用四种不同的L型骨牌去覆盖除特殊方格外的所有方格,且任何2个L型骨牌不得重叠覆盖。<br>这里,我们容易得到用到的L型骨牌数量为（4^k-1)/3;<br><img src="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/2_thumb.gif"></p>
+<p>我们采用分治策略,将2^k*2^k的方格分成4个2^(k-1)*2^(k-1),如下图：<br><img src="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/3_thumb.gif"></p>
+<p>特殊方格必位于4个较小棋盘中,其余3个子棋盘中无特殊方格。<br>为了将这3个子棋盘转化为特殊棋盘,可以用一个L型骨牌覆盖这3个较小棋盘<br>的汇合处,这3个子棋盘被L型骨牌覆盖的方格就成为该棋盘上的特殊方格。递归地使用这种分割,直至棋盘简化成1*1。如下图所示：<br><img src="https://www.cnblogs.com/images/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/4_thumb.gif"></p>
 <p>对于棋盘结构设计如下：<br>1、棋盘：可以用一个二维数组board[size][size]表示一个棋盘，其中，size=2^k。为了在递归处理的过程中使用同一个棋盘，将数组board设为全局变量；<br>2、子棋盘：整个棋盘用二维数组board[size][size]表示，其中的子棋盘由棋盘左上角的下标tr、tc和棋盘大小s表示；<br>3、特殊方格：用board[dr][dc]表示特殊方格，dr和dc是该特殊方格在二维数组board中的下标;<br>4、L型骨牌：一个2^k×2^k的棋盘中有一个特殊方格，所以，用到L型骨牌的个数为(4^k-1)/3，将所有L型骨牌从1开始连续编号，用一个全局变量tile表示。</p>
 <p>我们先分析一层递归的情况：<br>我们创建一个函数<code>void ChessBoard(int tr,int tc,int dr,int dc,int size);</code></p>
 <p>我们创建一个变量s=size/2，用来分割棋盘<br>左上子棋盘左上角坐标为(tr,tc)<br>右上子棋盘左上角坐标为(tr,tc+s)<br>左下子棋盘左上角坐标为(tr+s,tc)<br>右下子棋盘左上角坐标为(tr+s,tc+s)<br>我们L骨牌覆盖的中心区域坐标为：(tr+s-1,tc+s-1),(tr+s-1,tc+s),(tr+s,tc+s-1),(tr+s,tc+s);</p>
